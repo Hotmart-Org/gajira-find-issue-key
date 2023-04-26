@@ -306,18 +306,18 @@ export default class Action {
         );
       }
     } else {
-      logger.debug(`Creating ${issueKey}`);
-
-      issuePromises.push(
-        octokit.rest.issues.create({
-          ...this.context.repo,
-          title: `${issueKey}: ${issueTitle}`,
-          body: issueBody,
-
-          assignees,
-          milestone: milestoneNumber === -1 ? undefined : milestoneNumber,
-        }),
-      );
+      // logger.debug(`Creating ${issueKey}`);
+      //
+      // issuePromises.push(
+      //   octokit.rest.issues.create({
+      //     ...this.context.repo,
+      //     title: `${issueKey}: ${issueTitle}`,
+      //     body: issueBody,
+      //
+      //     assignees,
+      //     milestone: milestoneNumber === -1 ? undefined : milestoneNumber,
+      //   }),
+      // );
     }
     return Promise.all(issuePromises)
       .then((values) => {
