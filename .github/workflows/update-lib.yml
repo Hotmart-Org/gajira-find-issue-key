@@ -1,0 +1,30 @@
+name: Update lib
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  build:
+    runs-on: devops-iac
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install Dependencies
+      run: yarn install
+
+    - name: Build
+      run: yarn run build
+
+    - name: Commit & push
+      run: |
+        git commit -a . -m "Updating lib"
+        git push
