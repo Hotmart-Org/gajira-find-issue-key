@@ -249,12 +249,12 @@ export default class Action {
     if (issues) {
       const bodyUpdate = Action.updateStringByToken(startToken, endToken, body ?? '', text);
 
-      await octokit.rest.pulls.update({
-        ...this.context.repo,
-        title: newTitle,
-        body: bodyUpdate,
-        pull_number: number,
-      });
+      // await octokit.rest.pulls.update({
+      //   ...this.context.repo,
+      //   title: newTitle,
+      //   body: bodyUpdate,
+      //   pull_number: number,
+      // });
     }
   }
 
